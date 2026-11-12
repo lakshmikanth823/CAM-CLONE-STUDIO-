@@ -1,0 +1,17 @@
+{
+  "name": "LearnCamera - Interactive Camera Academy & Simulator",
+  "short_name": "LearnCamera",
+  "description": "Learn photography, exposure physics, camera models, and creative clone techniques interactively.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0b0e",
+  "theme_color": "#ff6b00",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

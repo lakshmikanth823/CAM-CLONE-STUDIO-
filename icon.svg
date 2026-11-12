@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="gradBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824" />
+      <stop offset="100%" stop-color="#0a0c12" />
+    </linearGradient>
+    <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8c33" />
+      <stop offset="100%" stop-color="#ff5500" />
+    </linearGradient>
+    <linearGradient id="lensReflect" x1="20%" y1="20%" x2="80%" y2="80%">
+      <stop offset="0%" stop-color="#2a3854" />
+      <stop offset="50%" stop-color="#121826" />
+      <stop offset="100%" stop-color="#05080f" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Rect -->
+  <rect width="512" height="512" rx="112" fill="url(#gradBg)" stroke="#262c3d" stroke-width="8" />
+  
+  <!-- Subtle Grid Circle -->
+  <circle cx="256" cy="270" r="180" fill="none" stroke="#1f2638" stroke-width="4" stroke-dasharray="8 8" />
+  
+  <!-- Camera Body -->
+  <path d="M120 180 L165 130 L347 130 L392 180 L420 180 A24 24 0 0 1 444 204 L444 390 A24 24 0 0 1 420 414 L92 414 A24 24 0 0 1 68 390 L68 204 A24 24 0 0 1 92 180 Z" 
+        fill="#1a1e2b" stroke="#31394d" stroke-width="6" />
+  
+  <!-- Shutter Button Accent -->
+  <rect x="135" y="106" width="56" height="24" rx="8" fill="url(#gradOrange)" />
+  <!-- Mode Dial -->
+  <rect x="325" y="112" width="60" height="18" rx="6" fill="#424c63" />
+  
+  <!-- Red Recording / Sensor Accent Dot -->
+  <circle cx="110" cy="225" r="10" fill="#ff3b30" />
+  
+  <!-- Outer Lens Ring -->
+  <circle cx="256" cy="295" r="105" fill="#141721" stroke="#3a445c" stroke-width="8" />
+  <circle cx="256" cy="295" r="92" fill="#202636" stroke="url(#gradOrange)" stroke-width="4" />
+  <circle cx="256" cy="295" r="76" fill="url(#lensReflect)" stroke="#1a202e" stroke-width="4" />
+  
+  <!-- Aperture Blades Reflection -->
+  <circle cx="256" cy="295" r="42" fill="#0d111a" />
+  <path d="M240 270 Q256 260 272 270 Q285 285 272 305 Q256 315 240 305 Q228 285 240 270 Z" fill="url(#gradOrange)" opacity="0.85" />
+  
+  <!-- Lens Glass Flare Reflection -->
+  <ellipse cx="230" cy="265" rx="22" ry="12" transform="rotate(-30 230 265)" fill="#ffffff" opacity="0.3" />
+  
+  <!-- Graduation / Learning Cap Mini-Insignia -->
+  <polygon points="256,40 320,68 256,96 192,68" fill="url(#gradOrange)" />
+  <polygon points="256,96 220,80 220,105 256,120 292,105 292,80" fill="#e04e00" />
+</svg>

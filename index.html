@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnCamera - Interactive Camera Academy & Simulator</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="description" content="Master photography, exposure physics, camera models, and creative clone techniques through interactive simulation.">
+  <meta name="theme-color" content="#ff6b00">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-container">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+        </div>
+        <h1>LEARN<span>CAMERA</span></h1>
+        <span class="app-badge">ACADEMY v2.0</span>
+      </div>
+      <nav class="app-nav">
+        <button class="nav-btn active" data-tab="academy">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Learning Hub
+        </button>
+        <button class="nav-btn" data-tab="simulator">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          Camera Simulator
+        </button>
+        <button class="nav-btn" data-tab="clone-lab">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Webcam Clone Lab
+        </button>
+        <button class="nav-btn" data-tab="math-visualizer">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          Optics & Physics
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+
+      <!-- ==================== TAB 0: LEARNING HUB & ACADEMY ==================== -->
+      <section id="academy-tab" class="tab-pane active">
+        <div class="academy-layout">
+          
+          <!-- Hero Banner -->
+          <div class="academy-hero card">
+            <div class="hero-content">
+              <h2>Master the Art & Physics of Camera Models</h2>
+              <p>Learn how light travels through lenses, master the Exposure Triangle, overcome low-light noise, and test your skills with live interactive challenges.</p>
+              
+              <!-- Quick Preset Ribbon -->
+              <div class="preset-ribbon">
+                <span class="preset-label">Quick Scenario Presets:</span>
+                <div class="preset-buttons">
+                  <button class="preset-btn" data-preset="portrait">👤 Creamy Portrait</button>
+                  <button class="preset-btn" data-preset="sports">🏎️ Fast Sports</button>
+                  <button class="preset-btn" data-preset="night">🌌 Night Astro</button>
+                  <button class="preset-btn" data-preset="street">🏙️ Street Doc</button>
+                  <button class="preset-btn" data-preset="landscape">🌄 Deep Landscape</button>
+                  <button class="preset-btn" data-preset="motion-art">🌀 Motion Panning</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academy Subtabs (Lessons, Challenges, Quiz, Glossary) -->
+          <div class="academy-nav-pills">
+            <button class="pill-btn active" data-subtab="lessons">📖 Interactive Lessons</button>
+            <button class="pill-btn" data-subtab="challenges">🎯 Practical Missions (<span id="completed-count">0</span>/4)</button>
+            <button class="pill-btn" data-subtab="quiz">🧠 Photography Quiz</button>
+            <button class="pill-btn" data-subtab="glossary">📚 Optics Glossary</button>
+          </div>
+
+          <!-- Subtab 1: Interactive Lessons -->
+          <div id="subtab-lessons" class="academy-subpane active">
+            <div class="lessons-grid">
+              
+              <!-- Lesson 1 -->
+              <div class="lesson-card card">
+                <div class="lesson-header">
+                  <span class="lesson-badge">Lesson 01</span>
+                  <h3>Aperture & Depth of Field (Bokeh)</h3>
+                </div>
+                <div class="lesson-body">
+                  <p>Aperture is the diaphragm opening inside your lens (measured in <strong>f-stops</strong> like f/1.4, f/2.8, f/16). It controls two crucial properties:</p>
+                  <ul class="lesson-points">
+                    <li><strong>Amount of Light:</strong> Lower f-number = wider opening = more light.</li>
+                    <li><strong>Depth of Field (DoF):</strong> A wide aperture (f/1.4 - f/2.8) isolates the subject with a blurred background (bokeh). A narrow aperture (f/8 - f/16) keeps everything in focus from front to back.</li>
+                  </ul>
+                  <div class="formula-chip">Formula: F-Number N = Focal Length (f) / Aperture Diameter (D)</div>
+                </div>
+                <div class="lesson-footer">
+                  <button class="btn btn-primary btn-sm apply-lesson-btn" data-lesson="aperture">
+                    Try Lesson in Simulator &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lesson 2 -->
+              <div class="lesson-card card">
+                <div class="lesson-header">
+                  <span class="lesson-badge">Lesson 02</span>
+                  <h3>Shutter Speed & Motion Control</h3>
+                </div>
+                <div class="lesson-body">
+                  <p>Shutter speed is the duration the camera sensor is exposed to light (e.g. 1/4000s to 1 full second).</p>
+                  <ul class="lesson-points">
+                    <li><strong>Freezing Action (1/500s - 1/4000s):</strong> Sharpens fast moving objects like spinning wheels, droplets, or athletes.</li>
+                    <li><strong>Motion Blur (1/30s - 1s+):</strong> Creates artistic streaks, silk water, and speed sensations. Requires a tripod or stabilization!</li>
+                  </ul>
+                  <div class="formula-chip">Rule of Thumb: Minimum handheld speed &approx; 1 / Focal Length (e.g., 50mm &rarr; 1/50s)</div>
+                </div>
+                <div class="lesson-footer">
+                  <button class="btn btn-primary btn-sm apply-lesson-btn" data-lesson="shutter">
+                    Try Lesson in Simulator &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lesson 3 -->
+              <div class="lesson-card card">
+                <div class="lesson-header">
+                  <span class="lesson-badge">Lesson 03</span>
+                  <h3>ISO Sensitivity & Sensor Grain</h3>
+                </div>
+                <div class="lesson-body">
+                  <p>ISO amplifies the electronic signal gathered by your sensor pixels. It allows shooting in dark environments without a flash:</p>
+                  <ul class="lesson-points">
+                    <li><strong>Base ISO (100 - 200):</strong> Purest image quality, maximum dynamic range, and zero digital grain.</li>
+                    <li><strong>High ISO (1600 - 12800):</strong> Brightens dark scenes but introduces luminance and chroma noise (grain), reducing fine sharpness.</li>
+                  </ul>
+                  <div class="formula-chip">Concept: Signal-to-Noise Ratio (SNR) decreases as ISO gain increases</div>
+                </div>
+                <div class="lesson-footer">
+                  <button class="btn btn-primary btn-sm apply-lesson-btn" data-lesson="iso">
+                    Try Lesson in Simulator &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lesson 4 -->
+              <div class="lesson-card card">
+                <div class="lesson-header">
+                  <span class="lesson-badge">Lesson 04</span>
+                  <h3>The Exposure Triangle & EV Scale</h3>
+                </div>
+                <div class="lesson-body">
+                  <p>Exposure Value (EV) measures the total light hitting the sensor. Changing one setting requires compensating with another to maintain balanced exposure (0 EV):</p>
+                  <ul class="lesson-points">
+                    <li>1 stop faster shutter (e.g., 1/125s &rarr; 1/250s) cuts light in half (-1 EV).</li>
+                    <li>Compensate by opening aperture 1 stop (f/4 &rarr; f/2.8) or doubling ISO (200 &rarr; 400).</li>
+                  </ul>
+                  <div class="formula-chip">EV Formula: EV = log₂(N² / t) - log₂(ISO / 100)</div>
+                </div>
+                <div class="lesson-footer">
+                  <button class="btn btn-primary btn-sm apply-lesson-btn" data-lesson="triangle">
+                    Try Lesson in Simulator &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lesson 5 -->
+              <div class="lesson-card card">
+                <div class="lesson-header">
+                  <span class="lesson-badge">Lesson 05</span>
+                  <h3>Focal Length & Perspective Field of View</h3>
+                </div>
+                <div class="lesson-body">
+                  <p>The focal length (in mm) determines your angle of view and visual compression:</p>
+                  <ul class="lesson-points">
+                    <li><strong>Wide-Angle (18mm - 35mm):</strong> Expansive field of view, ideal for architecture and sweeping horizons.</li>
+                    <li><strong>Standard (50mm):</strong> Natural perspective closely mimicking the human eye's single-glance perspective.</li>
+                    <li><strong>Telephoto (85mm - 200mm):</strong> Compresses background distances and renders flattering, distortion-free portraits.</li>
+                  </ul>
+                  <div class="formula-chip">FOV Formula: 2 &times; arctan(Sensor Width / (2 &times; Focal Length))</div>
+                </div>
+                <div class="lesson-footer">
+                  <button class="btn btn-primary btn-sm apply-lesson-btn" data-lesson="focal">
+                    Try Lesson in Simulator &rarr;
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lesson 6 -->
+              <div class="lesson-card card">
+                <div class="lesson-header">
+                  <span class="lesson-badge">Lesson 06</span>
+                  <h3>Sensor Sizes & The Crop Factor</h3>
+                </div>
+                <div class="lesson-body">
+                  <p>Digital sensors vary in physical surface area compared to classic 35mm film (Full Frame):</p>
+                  <ul class="lesson-points">
+                    <li><strong>Full Frame (1.0x):</strong> 36x24mm standard. Largest pixels, maximum light gathering.</li>
+                    <li><strong>APS-C (1.5x):</strong> Cropped sensor. A 50mm lens behaves with the field of view of a 75mm lens (50 &times; 1.5).</li>
+                    <li><strong>Micro Four Thirds (2.0x):</strong> 2x crop factor. 50mm becomes equivalent to 100mm telephoto.</li>
+                  </ul>
+                  <div class="formula-chip">Equivalent Focal Length = Physical mm &times; Crop Factor</div>
+                </div>
+                <div class="lesson-footer">
+                  <button class="btn btn-primary btn-sm apply-lesson-btn" data-lesson="crop">
+                    Try Lesson in Simulator &rarr;
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Subtab 2: Missions / Challenges -->
+          <div id="subtab-challenges" class="academy-subpane">
+            <div class="challenges-list">
+
+              <!-- Mission 1 -->
+              <div class="challenge-card card" id="challenge-1">
+                <div class="challenge-status">
+                  <span class="status-indicator">PENDING</span>
+                </div>
+                <div class="challenge-info">
+                  <h4>Mission 1: The Razor-Sharp Action Hero</h4>
+                  <p><strong>Objective:</strong> Freeze the rotating windmill pinwheel with <strong>zero motion blur</strong> while keeping your shot balanced in exposure.</p>
+                  <div class="challenge-criteria">
+                    <span>Criteria: Shutter Speed &ge; 1/500s | Exposure Error &plusmn; 0.6 EV</span>
+                  </div>
+                </div>
+                <div class="challenge-actions">
+                  <button class="btn btn-secondary btn-sm jump-to-sim-btn">Go To Simulator</button>
+                  <button class="btn btn-primary btn-sm verify-challenge-btn" data-challenge="1">Check My Settings</button>
+                </div>
+              </div>
+
+              <!-- Mission 2 -->
+              <div class="challenge-card card" id="challenge-2">
+                <div class="challenge-status">
+                  <span class="status-indicator">PENDING</span>
+                </div>
+                <div class="challenge-info">
+                  <h4>Mission 2: The Dreamy Bokeh Portrait</h4>
+                  <p><strong>Objective:</strong> Focus on the foreground flower (1.5m) and achieve an intense, creamy background blur using a wide aperture without overexposing.</p>
+                  <div class="challenge-criteria">
+                    <span>Criteria: Aperture &le; f/2.0 | Focus Distance &le; 2.0m | Exposure Error &plusmn; 0.6 EV</span>
+                  </div>
+                </div>
+                <div class="challenge-actions">
+                  <button class="btn btn-secondary btn-sm jump-to-sim-btn">Go To Simulator</button>
+                  <button class="btn btn-primary btn-sm verify-challenge-btn" data-challenge="2">Check My Settings</button>
+                </div>
+              </div>
+
+              <!-- Mission 3 -->
+              <div class="challenge-card card" id="challenge-3">
+                <div class="challenge-status">
+                  <span class="status-indicator">PENDING</span>
+                </div>
+                <div class="challenge-info">
+                  <h4>Mission 3: The Deep Horizon Landscape</h4>
+                  <p><strong>Objective:</strong> Ensure both the foreground and distant mountains remain sharp and clear across the entire scene.</p>
+                  <div class="challenge-criteria">
+                    <span>Criteria: Aperture &ge; f/11 | Focal Length &le; 35mm | Exposure Error &plusmn; 0.6 EV</span>
+                  </div>
+                </div>
+                <div class="challenge-actions">
+                  <button class="btn btn-secondary btn-sm jump-to-sim-btn">Go To Simulator</button>
+                  <button class="btn btn-primary btn-sm verify-challenge-btn" data-challenge="3">Check My Settings</button>
+                </div>
+              </div>
+
+              <!-- Mission 4 -->
+              <div class="challenge-card card" id="challenge-4">
+                <div class="challenge-status">
+                  <span class="status-indicator">PENDING</span>
+                </div>
+                <div class="challenge-info">
+                  <h4>Mission 4: The Low-Light Night Stalker</h4>
+                  <p><strong>Objective:</strong> Simulate shooting in dark ambient light by raising ISO gain while avoiding camera shake with a reasonable shutter speed.</p>
+                  <div class="challenge-criteria">
+                    <span>Criteria: ISO &ge; 1600 | Shutter &ge; 1/60s | Exposure Error &plusmn; 0.6 EV</span>
+                  </div>
+                </div>
+                <div class="challenge-actions">
+                  <button class="btn btn-secondary btn-sm jump-to-sim-btn">Go To Simulator</button>
+                  <button class="btn btn-primary btn-sm verify-challenge-btn" data-challenge="4">Check My Settings</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Subtab 3: Interactive Quiz -->
+          <div id="subtab-quiz" class="academy-subpane">
+            <div class="quiz-container card">
+              <div class="quiz-header">
+                <h3>Photography Knowledge Mastery Quiz</h3>
+                <span class="quiz-score">Score: <strong id="quiz-score-val">0</strong> / 5</span>
+              </div>
+              <div class="quiz-questions-list" id="quiz-list">
+                <!-- Injected via JavaScript -->
+              </div>
+              <div class="quiz-footer">
+                <button class="btn btn-primary" id="reset-quiz-btn">Restart Quiz</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtab 4: Optics Glossary -->
+          <div id="subtab-glossary" class="academy-subpane">
+            <div class="glossary-grid">
+              <div class="glossary-card card">
+                <h4>Bokeh</h4>
+                <p>The aesthetic quality of the out-of-focus blur in parts of an image produced by an optical lens. Rendered smoothly by circular aperture diaphragms.</p>
+              </div>
+              <div class="glossary-card card">
+                <h4>Circle of Confusion (CoC)</h4>
+                <p>An optical measurement defining the size of a point of light on the sensor before the human eye perceives it as unsharp or blurred.</p>
+              </div>
+              <div class="glossary-card card">
+                <h4>Exposure Value (EV)</h4>
+                <p>A logarithmic scale combining shutter speed and f-number. EV 0 represents an exposure of 1 second at f/1.0 with ISO 100.</p>
+              </div>
+              <div class="glossary-card card">
+                <h4>Hyperfocal Distance</h4>
+                <p>The focus distance that yields the greatest depth of field, keeping everything sharp from half the hyperfocal distance to infinity.</p>
+              </div>
+              <div class="glossary-card card">
+                <h4>Sunny 16 Rule</h4>
+                <p>A classic exposure rule stating that on a clear sunny day, an aperture of f/16 will yield correct exposure with a shutter speed equal to 1 / ISO.</p>
+              </div>
+              <div class="glossary-card card">
+                <h4>Pinhole Projection</h4>
+                <p>The fundamental geometric projection model of cameras, mapping 3D space $(X, Y, Z)$ to 2D pixels $(u, v)$ via perspective division.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== TAB 1: CAMERA SIMULATOR ==================== -->
+      <section id="simulator-tab" class="tab-pane">
+        <div class="simulator-layout">
+          <!-- Viewfinder Panel (Left/Center) -->
+          <div class="viewfinder-panel">
+            <div class="canvas-wrapper">
+              <canvas id="simulator-canvas" width="800" height="500"></canvas>
+              <!-- Exposure warning overlays -->
+              <div id="exposure-overlay-dark" class="exposure-overlay">TOO DARK</div>
+              <div id="exposure-overlay-bright" class="exposure-overlay">OVEREXPOSED</div>
+              <!-- Grid overlay -->
+              <div id="viewfinder-grid" class="viewfinder-grid hidden">
+                <div class="grid-line line-h1"></div>
+                <div class="grid-line line-h2"></div>
+                <div class="grid-line line-v1"></div>
+                <div class="grid-line line-v2"></div>
+                <div class="center-focus-ring"></div>
+              </div>
+              <div class="focus-beep-indicator" id="focus-beep"></div>
+            </div>
+            
+            <!-- Viewfinder HUD -->
+            <div class="viewfinder-hud">
+              <div class="hud-item" title="Aperture">F<span id="hud-aperture">2.8</span></div>
+              <div class="hud-item" title="Shutter Speed"><span id="hud-shutter">1/125</span>s</div>
+              <div class="hud-item" title="ISO">ISO <span id="hud-iso">400</span></div>
+              <div class="hud-item" title="Focal Length"><span id="hud-focal">50</span>mm</div>
+              <div class="hud-item exposure-hud-wrapper">
+                <span class="hud-label">EV</span>
+                <div class="exposure-meter-small">
+                  <div class="meter-bar">
+                    <div class="meter-tick" style="left: 0%">-3</div>
+                    <div class="meter-tick" style="left: 25%">-1.5</div>
+                    <div class="meter-tick center-tick" style="left: 50%">0</div>
+                    <div class="meter-tick" style="left: 75%">+1.5</div>
+                    <div class="meter-tick" style="left: 100%">+3</div>
+                    <div class="meter-indicator" id="hud-exposure-needle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Snapped Roll (Film strip) -->
+            <div class="film-strip-container">
+              <h3><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="21" y1="12" x2="9" y2="12"></line><line x1="9" y1="3" x2="9" y2="21"></line></svg> Camera Roll</h3>
+              <div class="film-roll" id="camera-roll">
+                <div class="empty-roll-msg">Snap photos using the shutter button!</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Panel (Right) -->
+          <div class="controls-panel card">
+            <div class="panel-section">
+              <h2 class="section-title">Lens & Body Config</h2>
+              
+              <!-- Sensor Size Selector -->
+              <div class="control-group">
+                <label>Sensor Format <span class="badge" id="sensor-badge">Full Frame (1.0x)</span></label>
+                <div class="sensor-selector">
+                  <button class="sensor-btn active" data-crop="1.0" data-name="Full Frame">35mm FF</button>
+                  <button class="sensor-btn" data-crop="1.5" data-name="APS-C">APS-C</button>
+                  <button class="sensor-btn" data-crop="2.0" data-name="Micro Four Thirds">M4/3</button>
+                </div>
+              </div>
+
+              <!-- Focal Length Slider -->
+              <div class="control-group">
+                <div class="control-label-row">
+                  <label for="focal-length-range">Focal Length</label>
+                  <span class="value-display"><strong id="val-focal">50</strong>mm</span>
+                </div>
+                <input type="range" id="focal-length-range" min="18" max="200" value="50" step="1">
+                <div class="range-labels">
+                  <span>18mm (Wide)</span>
+                  <span>50mm (Standard)</span>
+                  <span>200mm (Tele)</span>
+                </div>
+              </div>
+
+              <!-- Focus Distance Slider -->
+              <div class="control-group">
+                <div class="control-label-row">
+                  <label for="focus-distance-range">Focus Distance</label>
+                  <span class="value-display"><strong id="val-focus">3.0</strong>m</span>
+                </div>
+                <input type="range" id="focus-distance-range" min="1" max="10" value="3.0" step="0.1">
+                <div class="range-labels">
+                  <span>Close (1.0m)</span>
+                  <span>Middle (3.0m)</span>
+                  <span>Far (10.0m)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-section border-top">
+              <h2 class="section-title">Exposure Triangle</h2>
+
+              <!-- Aperture Slider -->
+              <div class="control-group">
+                <div class="control-label-row">
+                  <label for="aperture-range">Aperture (Depth of Field)</label>
+                  <span class="value-display highlight">f/<strong id="val-aperture">2.8</strong></span>
+                </div>
+                <input type="range" id="aperture-range" min="0" max="8" value="3" step="1">
+                <div class="range-labels font-mono" id="aperture-labels"></div>
+              </div>
+
+              <!-- Shutter Speed Slider -->
+              <div class="control-group">
+                <div class="control-label-row">
+                  <label for="shutter-range">Shutter Speed (Motion Blur)</label>
+                  <span class="value-display highlight"><strong id="val-shutter">1/125</strong>s</span>
+                </div>
+                <input type="range" id="shutter-range" min="0" max="12" value="6" step="1">
+                <div class="range-labels font-mono" id="shutter-labels"></div>
+              </div>
+
+              <!-- ISO Slider -->
+              <div class="control-group">
+                <div class="control-label-row">
+                  <label for="iso-range">ISO (Sensor Noise)</label>
+                  <span class="value-display highlight"><strong id="val-iso">400</strong></span>
+                </div>
+                <input type="range" id="iso-range" min="0" max="7" value="2" step="1">
+                <div class="range-labels font-mono" id="iso-labels"></div>
+              </div>
+            </div>
+
+            <!-- Utility Action buttons -->
+            <div class="panel-actions">
+              <button class="icon-toggle-btn" id="toggle-grid-btn" title="Toggle Grid Lines">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+              </button>
+              <button class="shutter-btn" id="shutter-trigger-btn" title="Trigger Shutter (Take Photo)">
+                <span class="shutter-inner"></span>
+              </button>
+              <button class="icon-toggle-btn" id="auto-exposure-btn" title="Auto Exposure (Lock EV)">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path><circle cx="12" cy="12" r="4"></circle></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 2: WEBCAM CLONE LAB ==================== -->
+      <section id="clone-lab-tab" class="tab-pane">
+        <div class="clone-layout">
+          <!-- Main workspace screen -->
+          <div class="clone-workspace-panel card">
+            <div class="workspace-header">
+              <h2>Webcam Canvas Compositor</h2>
+              <div class="camera-status" id="webcam-status-indicator">
+                <span class="status-dot warning"></span>
+                <span class="status-text" id="webcam-status-text">Webcam Loading...</span>
+              </div>
+            </div>
+
+            <div class="clone-canvas-container">
+              <!-- Live interactive processing canvas -->
+              <canvas id="clone-canvas" width="720" height="480"></canvas>
+              <!-- Brush preview circle -->
+              <div id="brush-ring" class="brush-cursor-ring"></div>
+              <!-- Hidden offscreen video for webcam binding -->
+              <video id="webcam-stream" autoplay playsinline class="hidden-element"></video>
+              
+              <!-- Guides overlay (onion skinning) -->
+              <div id="onion-skin-container" class="onion-skin-container hidden-element"></div>
+            </div>
+
+            <!-- Composite Adjustments and Filters -->
+            <div class="clone-filters-row border-top">
+              <div class="filter-group">
+                <label>Vintage Film Profile</label>
+                <div class="filter-buttons">
+                  <button class="filter-btn active" data-filter="none">Raw</button>
+                  <button class="filter-btn" data-filter="warm-vintage">Chrome Gold</button>
+                  <button class="filter-btn" data-filter="monochrome-high">Noir Mono</button>
+                  <button class="filter-btn" data-filter="faded-instant">Cyberpunk Indigo</button>
+                  <button class="filter-btn" data-filter="dramatic-cool">Polaroid Faded</button>
+                </div>
+              </div>
+              <div class="export-actions">
+                <button class="btn btn-secondary" id="clear-clone-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                  Reset Studio
+                </button>
+                <button class="btn btn-primary" id="download-clone-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  Export Master Clone
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clone Controls Sidebar -->
+          <div class="clone-sidebar card">
+            <div class="sidebar-section">
+              <h3>1. Capture Clones</h3>
+              <p class="section-desc">Position yourself in different parts of the camera view, then capture up to 4 clone layers.</p>
+              
+              <div class="shot-slots-grid">
+                <!-- Slot 1 (Base Frame) -->
+                <div class="shot-slot empty active" id="slot-1" data-slot="1">
+                  <div class="slot-thumb">
+                    <span class="slot-num">1</span>
+                    <span class="slot-label">Base Frame</span>
+                  </div>
+                  <button class="btn btn-sm btn-action capture-slot-btn" data-slot="1">Snap Base</button>
+                </div>
+                <!-- Slot 2 -->
+                <div class="shot-slot empty" id="slot-2" data-slot="2">
+                  <div class="slot-thumb">
+                    <span class="slot-num">2</span>
+                    <span class="slot-label">Clone A</span>
+                  </div>
+                  <button class="btn btn-sm btn-action capture-slot-btn" data-slot="2" disabled>Capture</button>
+                </div>
+                <!-- Slot 3 -->
+                <div class="shot-slot empty" id="slot-3" data-slot="3">
+                  <div class="slot-thumb">
+                    <span class="slot-num">3</span>
+                    <span class="slot-label">Clone B</span>
+                  </div>
+                  <button class="btn btn-sm btn-action capture-slot-btn" data-slot="3" disabled>Capture</button>
+                </div>
+                <!-- Slot 4 -->
+                <div class="shot-slot empty" id="slot-4" data-slot="4">
+                  <div class="slot-thumb">
+                    <span class="slot-num">4</span>
+                    <span class="slot-label">Clone C</span>
+                  </div>
+                  <button class="btn btn-sm btn-action capture-slot-btn" data-slot="4" disabled>Capture</button>
+                </div>
+              </div>
+              
+              <!-- Onion Skin Switcher -->
+              <div class="setting-toggle-row">
+                <span>Onion Skin (Opacity overlay)</span>
+                <label class="switch">
+                  <input type="checkbox" id="onion-skin-toggle">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="sidebar-section border-top">
+              <h3>2. Choose Blend Method</h3>
+              
+              <div class="blend-method-selector">
+                <button class="method-btn active" data-method="split">
+                  <div class="icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="12" y1="1" x2="12" y2="23"></line><rect x="2" y="5" width="20" height="14" rx="2"></rect></svg>
+                  </div>
+                  <div>
+                    <h4>Split screen</h4>
+                    <p>Slices the canvas vertically for quick cloning.</p>
+                  </div>
+                </button>
+                
+                <button class="method-btn" data-method="brush">
+                  <div class="icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                  </div>
+                  <div>
+                    <h4>Manual Brush Masking</h4>
+                    <p>Brush over your snapshots to paint clones in!</p>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Split Mode Details -->
+              <div id="split-mode-controls" class="blend-details-panel">
+                <label>Split Ratio Slider</label>
+                <input type="range" id="split-ratio-range" min="10" max="90" value="50">
+                <div class="range-labels">
+                  <span>Left (Base)</span>
+                  <span>Mid</span>
+                  <span>Right (Clone A)</span>
+                </div>
+              </div>
+
+              <!-- Brush Mode Details -->
+              <div id="brush-mode-controls" class="blend-details-panel hidden-element">
+                <div class="brush-layer-select-group">
+                  <label>Select Layer to Reveal:</label>
+                  <div class="brush-layers" id="brush-layers-list">
+                    <button class="brush-layer-btn active" data-brush-slot="2">Clone A (Slot 2)</button>
+                    <button class="brush-layer-btn" data-brush-slot="3" disabled>Clone B (Slot 3)</button>
+                    <button class="brush-layer-btn" data-brush-slot="4" disabled>Clone C (Slot 4)</button>
+                  </div>
+                </div>
+
+                <div class="brush-tools">
+                  <div class="brush-mode-toggles">
+                    <button class="btn btn-sm btn-toggle-active" id="brush-paint-btn">
+                      <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M7.5 10.5c.828 0 1.5-.672 1.5-1.5s-.672-1.5-1.5-1.5-1.5.672-1.5 1.5.672 1.5 1.5 1.5z"></path><path d="M11.5 7.5c.828 0 1.5-.672 1.5-1.5S12.328 4.5 11.5 4.5s-1.5.672-1.5 1.5.672 1.5 1.5 1.5z"></path><path d="M16.5 10.5c.828 0 1.5-.672 1.5-1.5s-.672-1.5-1.5-1.5-1.5.672-1.5 1.5.672 1.5 1.5 1.5z"></path><path d="M6 14c0 3.31 2.69 6 6 6s6-2.69 6-6H6z"></path></svg>
+                      Paint Clone
+                    </button>
+                    <button class="btn btn-sm" id="brush-erase-btn">
+                      <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M20 20H4"></path><path d="M20 13l-7-7-8.5 8.5a2.12 2.12 0 0 0 0 3L7 20h13v-7z"></path></svg>
+                      Erase Paint
+                    </button>
+                  </div>
+                  
+                  <div class="control-group">
+                    <div class="control-label-row">
+                      <label for="brush-size-range">Brush Size</label>
+                      <span class="value-display"><strong id="val-brush-size">40</strong>px</span>
+                    </div>
+                    <input type="range" id="brush-size-range" min="10" max="100" value="40">
+                  </div>
+
+                  <div class="control-group">
+                    <div class="control-label-row">
+                      <label for="brush-hardness-range">Brush Softness</label>
+                      <span class="value-display"><strong id="val-brush-hardness">50</strong>%</span>
+                    </div>
+                    <input type="range" id="brush-hardness-range" min="0" max="100" value="50">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 3: MATHEMATICAL PHYSICS VISUALIZER ==================== -->
+      <section id="math-visualizer-tab" class="tab-pane">
+        <div class="math-layout">
+          <!-- Left Column: Math details and equations -->
+          <div class="math-docs card">
+            <h2>The Mathematics of Camera Models</h2>
+            <p>A camera model is a mathematical description of the process of projecting 3D points in the physical world onto a 2D digital sensor plane.</p>
+
+            <div class="math-card">
+              <h3>1. The Pinhole Camera Model</h3>
+              <p>In a standard pinhole camera, light rays pass through a single point (the optical center or projection center) and form an inverted image on the sensor plane.</p>
+              
+              <div class="formula-box font-mono">
+                u = f * (X / Z) + u₀<br>
+                v = f * (Y / Z) + v₀
+              </div>
+              
+              <p>Where:</p>
+              <ul>
+                <li><strong>(X, Y, Z)</strong>: 3D point coordinates in the camera coordinate frame (Z is distance from lens).</li>
+                <li><strong>f</strong>: Focal length of the lens.</li>
+                <li><strong>(u, v)</strong>: 2D pixel coordinates on the digital sensor.</li>
+                <li><strong>(u₀, v₀)</strong>: Principal point (optical center of the digital sensor).</li>
+              </ul>
+            </div>
+
+            <div class="math-card border-top">
+              <h3>2. Camera Intrinsic Matrix (K)</h3>
+              <p>The intrinsic matrix handles parameters specific to the camera hardware (focal length, sensor aspect ratio, and optical center shifts):</p>
+              
+              <div class="formula-box font-mono">
+                [ u ] &nbsp; [ f_x &nbsp;  s  &nbsp; u₀ ] [ X ] <br>
+                [ v ] = [  0  &nbsp; f_y &nbsp; v₀ ] [ Y ] <br>
+                [ 1 ] &nbsp; [  0  &nbsp;  0  &nbsp;  1  ] [ Z ]
+              </div>
+              <p>Where $s$ is the pixel skew factor (usually 0), and $f_x, f_y$ are the focal lengths represented in pixel units.</p>
+            </div>
+
+            <div class="math-card border-top">
+              <h3>3. Depth of Field & Circle of Confusion (CoC)</h3>
+              <p>In a real camera lens with an aperture, only objects at the exact Focus Distance ($D_f$) project perfectly onto the sensor as points. Other points project as blurred circles called the <strong>Circle of Confusion (CoC)</strong>:</p>
+              
+              <div class="formula-box font-mono">
+                CoC = A * |S - D_f| / S * (f / (D_f - f))
+              </div>
+              <p>Where $A$ is the aperture diameter ($A = f / N$), $S$ is the object distance, and $D_f$ is the lens focal plane distance.</p>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive 3D/2D projection simulator -->
+          <div class="math-simulator card">
+            <h2>Interactive Math Sandbox</h2>
+            <p class="section-desc">Change the values below to see how a 3D coordinate $(X, Y, Z)$ is mathematically projected onto the 2D viewfinder coordinate $(u, v)$ based on Focal Length ($f$) and Sensor settings!</p>
+
+            <div class="sandbox-visual-panel">
+              <canvas id="math-sandbox-canvas" width="400" height="280"></canvas>
+            </div>
+
+            <div class="sandbox-controls grid-2col">
+              <div class="control-group">
+                <label>3D X Coordinate (Horizontal)</label>
+                <input type="range" id="math-x" min="-10" max="10" value="2.5" step="0.1">
+                <span class="sandbox-val">X = <strong id="val-math-x">2.5</strong>m</span>
+              </div>
+              <div class="control-group">
+                <label>3D Y Coordinate (Vertical)</label>
+                <input type="range" id="math-y" min="-10" max="10" value="-1.5" step="0.1">
+                <span class="sandbox-val">Y = <strong id="val-math-y">-1.5</strong>m</span>
+              </div>
+              <div class="control-group">
+                <label>3D Z Coordinate (Distance)</label>
+                <input type="range" id="math-z" min="2" max="25" value="8" step="0.5">
+                <span class="sandbox-val">Z = <strong id="val-math-z">8.0</strong>m</span>
+              </div>
+              <div class="control-group">
+                <label>Focal Length (f)</label>
+                <input type="range" id="math-focal" min="18" max="200" value="50" step="1">
+                <span class="sandbox-val">f = <strong id="val-math-f">50</strong>mm</span>
+              </div>
+            </div>
+
+            <!-- Mathematical calculation display -->
+            <div class="math-calculation-card font-mono">
+              <h4>Real-time Pinhole Projection Math:</h4>
+              <div class="calc-row">
+                <span>Projection formula:</span>
+                <span>x_proj = f * X / Z, &nbsp; y_proj = f * Y / Z</span>
+              </div>
+              <div class="calc-row highlighted-row">
+                <span>x_proj calc:</span>
+                <span><span id="math-calc-x-expr">50 * 2.5 / 8.0</span> = <strong id="math-calc-x-res">15.62</strong> mm</span>
+              </div>
+              <div class="calc-row highlighted-row">
+                <span>y_proj calc:</span>
+                <span><span id="math-calc-y-expr">50 * (-1.5) / 8.0</span> = <strong id="math-calc-y-res">-9.38</strong> mm</span>
+              </div>
+              <div class="calc-row">
+                <span>Viewfinder Pixel (u, v):</span>
+                <span>u = <strong id="math-pixel-u">497</strong> px, &nbsp; v = <strong id="math-pixel-v">296</strong> px</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>&copy; 2026 LearnCamera Academy. Open-source interactive camera model & optics laboratory.</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript Controller -->
+  <script src="app.js"></script>
+</body>
+</html>

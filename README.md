@@ -1,91 +1,163 @@
-# 📷 LearnCamera - Interactive Camera Academy & Simulator
+# 📷 CAM-CLONE-STUDIO (LearnCamera Academy)
 
-[![PWA Ready](https://img.shields.io/badge/PWA-Ready-orange.svg)](#)
-[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Vanilla%20JS%20%2F%20HTML5%20%2F%20CSS3-blue.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#)
+<p align="center">
+  <img src="assets/banner.svg" alt="CAM-CLONE-STUDIO Banner" width="100%" />
+</p>
 
-**LearnCamera** is an open-source, interactive web application designed to help photographers, students, and engineers master the mechanics, exposure physics, optical projection models, and creative techniques of digital cameras.
+<p align="center">
+  <a href="#-quick-start"><img src="https://img.shields.io/badge/PWA-Ready-orange.svg" alt="PWA Ready" /></a>
+  <a href="#-tech-stack"><img src="https://img.shields.io/badge/Dependencies-Zero%20(Pure%20Vanilla%20JS)-blue.svg" alt="Zero Dependencies" /></a>
+  <a href="#-license"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License" /></a>
+  <a href="#-git-version-control"><img src="https://img.shields.io/badge/Version-v2.0.0-brightgreen.svg" alt="Version" /></a>
+</p>
 
 ---
 
-## 🌟 Key Application Modules
+## 🌟 Overview
+
+**CAM-CLONE-STUDIO** (incorporating **LearnCamera Academy**) is a high-performance, open-source web application engineered for photographers, creative technologists, and computer vision students.
+
+It unifies **interactive photographic education**, **real-time camera physics simulation**, **creative multi-exposure clone compositing**, and **optical pinhole 3D-to-2D projection math** into a unified, zero-dependency suite.
+
+<p align="center">
+  <img src="assets/features-overview.svg" alt="Core Application Modules" width="100%" />
+</p>
+
+---
+
+## 🚀 Key Modules & Capabilities
 
 ### 1. 🎓 Camera Academy & Learning Hub
-- **Interactive Lessons**: Deep-dive into Aperture (depth of field & bokeh), Shutter Speed (action freezing vs. motion blur), ISO (sensor gain & noise), the Exposure Triangle (EV calculations), Focal Lengths, and Sensor Crop Factors.
-- **"Try in Simulator" Actions**: One click tunes the simulator directly to each lesson's concept.
-- **Skill Challenges & Missions**: Real interactive missions (Action Hero, Dreamy Bokeh, Deep Landscape, Low-Light Stalker) that evaluate your camera settings with live feedback.
-- **Quick Scenario Presets**: One-click professional setups for *Creamy Portrait*, *Fast Sports*, *Night Astro*, *Street Documentary*, *Deep Landscape*, and *Motion Panning*.
-- **Interactive Photography Quiz**: 5-question mastery quiz with immediate answer validation and detailed optical explanations.
-- **Optics Glossary**: Comprehensive dictionary covering Bokeh, Circle of Confusion (CoC), Exposure Value (EV), Hyperfocal Distance, and the Sunny 16 rule.
-
-### 2. 📷 Camera Simulator (Virtual Lab)
-- **Exposure Triangle Controls**:
-  - **Aperture**: $f/1.2$ to $f/22$ with true depth-of-field bokeh blurring based on circle of confusion formulas.
-  - **Shutter Speed**: $1/4000\text{s}$ to $1\text{s}$ with angular velocity motion blur on rotating objects.
-  - **ISO**: $100$ to $12,800$ with dynamic stochastic sensor grain noise.
-- **Body & Lens Parameters**:
-  - Full Frame ($1.0\times$), APS-C ($1.5\times$), and Micro Four Thirds ($2.0\times$) sensor crop factors.
-  - Variable Focal Length ($18\text{mm}$ to $200\text{mm}$) and Focus Distance ($1.0\text{m}$ to $10.0\text{m}$).
-- **Viewfinder HUD**:
-  - Real-time digital EV meter needle ($-3\text{ EV}$ to $+3\text{ EV}$).
-  - Live overexposure and underexposure warnings.
-  - 3x3 compositional rule-of-thirds grid overlay.
-  - Audio-synthesized mechanical shutter sound (via Web Audio API) with screen flash and a persistent **Camera Roll** film strip.
-
-### 3. 🧪 Webcam Clone Lab
-- **Multi-Shot Compositor**: Capture up to 4 clone layers using your real webcam or an interactive holographic simulation fallback.
-- **Split-Screen & Brush Masking**: Slice or manually paint clones into a single frame using soft-edged alpha brushes.
-- **Vintage Film Profiles**: *Chrome Gold*, *Noir Mono*, *Cyberpunk Indigo*, and *Polaroid Faded*.
-- **Export**: One-click master composite JPEG download.
-
-### 4. 📐 Camera Physics & Optics Explorer
-- **Pinhole Camera Model**: Explains the mathematical projection from 3D space $(X, Y, Z)$ to 2D digital sensor pixels $(u, v)$:
-  $$\begin{aligned}
-  u &= f \cdot \frac{X}{Z} + u_0 \\
-  v &= f \cdot \frac{Y}{Z} + v_0
-  \end{aligned}$$
-- **Camera Intrinsic Matrix ($K$)**: Formulates focal lengths in pixel units, sensor center shifts, and skew.
-- **Interactive 3D-to-2D Sandbox**: Drag 3D coordinates $(X, Y, Z)$ and watch the projected pixel location update in real-time.
+A structured curriculum to help you master camera settings and optics through hands-on practice:
+* **Interactive Lessons**:
+  - **Lesson 01**: Aperture & Depth of Field (f-stops, bokeh, subject isolation).
+  - **Lesson 02**: Shutter Speed & Motion Dynamics (action freeze vs motion blur).
+  - **Lesson 03**: ISO Sensitivity & Sensor Signal-to-Noise Ratio (SNR).
+  - **Lesson 04**: The Exposure Triangle & Reciprocal EV Compensation.
+  - **Lesson 05**: Focal Lengths & Perspective Distortion (Wide vs Standard vs Telephoto).
+  - **Lesson 06**: Digital Sensor Formats & Crop Factors (Full Frame, APS-C, Micro Four Thirds).
+* **"Try in Simulator" Actions**: Instantly loads each lesson's parameters onto the live viewfinder.
+* **Skill Challenges & Missions**: Hands-on assignments evaluated with real-time feedback:
+  - 🏎️ *The Razor-Sharp Action Hero* (Freeze spinning motion at $\ge 1/500\text{s}$).
+  - 👤 *The Dreamy Bokeh Portrait* (Shallow depth of field $\le f/2.0$ at close range).
+  - 🌄 *The Deep Horizon Landscape* (Wide view $\le 35\text{mm}$, narrow aperture $\ge f/11$).
+  - 🌌 *The Low-Light Night Stalker* (High ISO $\ge 1600$, balanced EV).
+* **One-Click Genre Presets**: Instant recipes for *Creamy Portrait*, *Fast Sports*, *Night Astro*, *Street Documentary*, *Deep Landscape*, and *Motion Panning*.
+* **Photography Mastery Quiz**: 5-question test with explanations and dynamic scoring.
 
 ---
 
-## 🚀 Quick Start & How to Run
+### 2. 📷 Physical Camera Simulator
 
-### Option 1: Direct Browser Access
-Simply open `index.html` in any modern web browser (Chrome, Edge, Firefox, Safari).
+<p align="center">
+  <img src="assets/exposure-triangle.svg" alt="Exposure Triangle Infographic" width="100%" />
+</p>
 
-### Option 2: Local HTTP Server (Recommended for PWA & Webcam)
-Using Python:
+A canvas-driven virtual camera rendering an animated, interactive 3D scene:
+* **Exposure Triangle**:
+  - **Aperture**: $f/1.2$, $f/1.8$, $f/2.8$, $f/4.0$, $f/5.6$, $f/8.0$, $f/11$, $f/16$, $f/22$.
+  - **Shutter Speed**: $1/4000\text{s}$ down to $1\text{s}$.
+  - **ISO**: $100$ to $12,800$.
+* **Physics Engine**:
+  - **Depth of Field (Bokeh)**: Dynamically calculated using Circle of Confusion (CoC) optics.
+  - **Shutter Motion Blur**: Subdivided blade rendering across angular velocity steps.
+  - **ISO Sensor Grain**: Real-time luminance/chrominance noise synthesis.
+* **Viewfinder HUD & Controls**:
+  - EV metering needle ($-3\text{ EV}$ to $+3\text{ EV}$) with overexposure/underexposure warning banners.
+  - Rule-of-thirds compositional grid and focus target beeper.
+  - Audio-synthesized shutter sound via Web Audio API.
+  - Persistent **Camera Roll** film strip with direct JPEG export.
+
+---
+
+### 3. 🧪 Webcam Clone Lab
+A multi-exposure compositor for creative clone photography:
+* **Multi-Shot Capture**: Snap up to 4 layers using your webcam (or built-in holographic simulator fallback).
+* **Blending Methods**:
+  - **Split-Screen Mode**: Draggable vertical ratio division.
+  - **Manual Brush Masking**: Adjustable brush size and softness to paint or erase clones into the base frame.
+* **Vintage Film Profiles**: *Chrome Gold*, *Noir Mono*, *Cyberpunk Indigo*, and *Polaroid Faded*.
+* **Export**: Instant master composite download.
+
+---
+
+### 4. 📐 Camera Optics & Math Visualizer
+
+<p align="center">
+  <img src="assets/pinhole-projection.svg" alt="Pinhole Projection Model" width="100%" />
+</p>
+
+Deep-dive into camera calibration and projective geometry:
+* **The Pinhole Projection Equation**:
+  $$u = f \cdot \frac{X}{Z} + u_0, \quad v = f \cdot \frac{Y}{Z} + v_0$$
+* **Camera Intrinsic Calibration Matrix ($K$)**:
+  $$\begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} f_x & s & u_0 \\ 0 & f_y & v_0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}$$
+* **Interactive 3D-to-2D Sandbox**: Adjust 3D coordinates $(X, Y, Z)$ and watch $(u, v)$ sensor pixel coordinates update in real time.
+
+---
+
+## ⚡ Quick Start
+
+### 1. Clone the Repository
 ```bash
-cd learn-camera
+git clone https://github.com/lakshmikanth823/CAM-CLONE-STUDIO-.git
+cd CAM-CLONE-STUDIO-
+```
+
+### 2. Run Locally
+You can run it with any static web server:
+
+**Using Python:**
+```bash
 python -m http.server 8000
 ```
-Then navigate to:
+
+**Using Node / npx:**
+```bash
+npx serve .
 ```
-http://localhost:8000
-```
+
+Open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ---
 
 ## 📱 Progressive Web App (PWA)
-LearnCamera includes a `manifest.json` and `sw.js` (Service Worker). You can install it as a standalone desktop or mobile application directly from your browser's address bar icon.
+
+This project is PWA-ready:
+* Includes `manifest.json` and `sw.js` for full offline caching.
+* Can be installed as a native desktop or mobile window directly from your browser's install icon.
 
 ---
 
-## 🛠️ Project Structure
+## 📂 Project Architecture
+
 ```
-learn-camera/
-├── index.html        # Main application layout, HUD, Academy, and labs
-├── style.css         # Dark-carbon theme, glassmorphism, responsive styles
-├── app.js            # Core simulation engine, Web Audio, PWA & Academy logic
-├── manifest.json     # PWA standalone manifest
-├── sw.js             # Offline Service Worker cache
-├── icon.svg          # Vector application logo & app icon
-├── .gitignore        # Git ignored files
-└── README.md         # Documentation & guide
+CAM-CLONE-STUDIO-/
+├── assets/                       # Vector diagrams, banners, and schematics
+│   ├── banner.svg                # High-res application banner
+│   ├── exposure-triangle.svg     # Exposure triangle educational graphic
+│   ├── features-overview.svg     # 4-quadrant feature summary
+│   └── pinhole-projection.svg    # Optical ray tracing diagram
+├── index.html                    # Single-page application framework
+├── style.css                     # Modern dark-carbon CSS design system
+├── app.js                        # Simulation physics, Web Audio, PWA & Academy logic
+├── manifest.json                 # PWA standalone manifest
+├── sw.js                         # Service Worker offline cache
+├── icon.svg                      # High-resolution vector camera icon
+├── .gitignore                    # Git ignore file
+└── README.md                     # Documentation & user guide
 ```
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to open an issue or submit a pull request.
 
 ---
 
 ## 📄 License
-MIT License. Created for interactive learning and optics simulation.
+
+This project is licensed under the [MIT License](LICENSE).
+Built for interactive optics learning and creative photography.

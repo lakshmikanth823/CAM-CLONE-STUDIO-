@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="900" height="320">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824" />
+      <stop offset="100%" stop-color="#0e111a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Card 1: Academy -->
+  <g transform="translate(15, 20)">
+    <rect width="205" height="280" rx="12" fill="url(#cardGrad)" stroke="#273042" stroke-width="1.5" />
+    <circle cx="45" cy="45" r="20" fill="rgba(255, 107, 0, 0.15)" stroke="#ff8c33" stroke-width="1.5" />
+    <text x="45" y="52" fill="#ff8c33" font-family="'Inter', sans-serif" font-size="16" font-weight="800" text-anchor="middle">🎓</text>
+    <text x="25" y="95" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Learning Hub</text>
+    <text x="25" y="120" fill="#8e9bb0" font-family="'Inter', sans-serif" font-size="12" line-height="1.5">
+      <tspan x="25" dy="0">6 Interactive lessons</tspan>
+      <tspan x="25" dy="20">4 Hands-on missions</tspan>
+      <tspan x="25" dy="20">6 Scenario presets</tspan>
+      <tspan x="25" dy="20">Mastery quiz &amp; glossary</tspan>
+    </text>
+    <rect x="25" y="235" width="155" height="24" rx="4" fill="rgba(255, 107, 0, 0.1)" />
+    <text x="102" y="251" fill="#ff8c33" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">ACADEMY v2.0</text>
+  </g>
+
+  <!-- Card 2: Simulator -->
+  <g transform="translate(235, 20)">
+    <rect width="205" height="280" rx="12" fill="url(#cardGrad)" stroke="#273042" stroke-width="1.5" />
+    <circle cx="45" cy="45" r="20" fill="rgba(0, 122, 255, 0.15)" stroke="#007aff" stroke-width="1.5" />
+    <text x="45" y="52" fill="#007aff" font-family="'Inter', sans-serif" font-size="16" font-weight="800" text-anchor="middle">📷</text>
+    <text x="25" y="95" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Camera Simulator</text>
+    <text x="25" y="120" fill="#8e9bb0" font-family="'Inter', sans-serif" font-size="12">
+      <tspan x="25" dy="0">Live Exposure triangle</tspan>
+      <tspan x="25" dy="20">True bokeh depth of field</tspan>
+      <tspan x="25" dy="20">Pinwheel motion blur</tspan>
+      <tspan x="25" dy="20">Dynamic ISO grain noise</tspan>
+    </text>
+    <rect x="25" y="235" width="155" height="24" rx="4" fill="rgba(0, 122, 255, 0.1)" />
+    <text x="102" y="251" fill="#007aff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PHYSICS ENGINE</text>
+  </g>
+
+  <!-- Card 3: Clone Lab -->
+  <g transform="translate(455, 20)">
+    <rect width="205" height="280" rx="12" fill="url(#cardGrad)" stroke="#273042" stroke-width="1.5" />
+    <circle cx="45" cy="45" r="20" fill="rgba(52, 199, 89, 0.15)" stroke="#34c759" stroke-width="1.5" />
+    <text x="45" y="52" fill="#34c759" font-family="'Inter', sans-serif" font-size="16" font-weight="800" text-anchor="middle">🧪</text>
+    <text x="25" y="95" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Webcam Clone Lab</text>
+    <text x="25" y="120" fill="#8e9bb0" font-family="'Inter', sans-serif" font-size="12">
+      <tspan x="25" dy="0">4 Snapshot layers</tspan>
+      <tspan x="25" dy="20">Vertical split screen</tspan>
+      <tspan x="25" dy="20">Manual brush masking</tspan>
+      <tspan x="25" dy="20">Vintage film LUT filters</tspan>
+    </text>
+    <rect x="25" y="235" width="155" height="24" rx="4" fill="rgba(52, 199, 89, 0.1)" />
+    <text x="102" y="251" fill="#34c759" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">COMPOSITING</text>
+  </g>
+
+  <!-- Card 4: Optics & Math -->
+  <g transform="translate(675, 20)">
+    <rect width="205" height="280" rx="12" fill="url(#cardGrad)" stroke="#273042" stroke-width="1.5" />
+    <circle cx="45" cy="45" r="20" fill="rgba(175, 82, 222, 0.15)" stroke="#af52de" stroke-width="1.5" />
+    <text x="45" y="52" fill="#af52de" font-family="'Inter', sans-serif" font-size="16" font-weight="800" text-anchor="middle">📐</text>
+    <text x="25" y="95" fill="#ffffff" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Optics &amp; Math</text>
+    <text x="25" y="120" fill="#8e9bb0" font-family="'Inter', sans-serif" font-size="12">
+      <tspan x="25" dy="0">Pinhole camera model</tspan>
+      <tspan x="25" dy="20">Intrinsic Matrix (K)</tspan>
+      <tspan x="25" dy="20">Interactive 3D to 2D</tspan>
+      <tspan x="25" dy="20">Real-time pixel mapping</tspan>
+    </text>
+    <rect x="25" y="235" width="155" height="24" rx="4" fill="rgba(175, 82, 222, 0.1)" />
+    <text x="102" y="251" fill="#af52de" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">MATHEMATICS</text>
+  </g>
+</svg>
